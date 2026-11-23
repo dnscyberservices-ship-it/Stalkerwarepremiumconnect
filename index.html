@@ -16,9 +16,7 @@
     --accent: #63e6be;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -38,43 +36,25 @@ body {
     border-radius: 24px;
     background: #0c1321;
     overflow: hidden;
-    box-shadow: 0 30px 90px #0009;
 }
 
 .top {
-    height: 68px;
+    height: 55px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 28px;
     border-bottom: 1px solid var(--line);
 }
 
-.brand {
-    font-weight: bold;
-    letter-spacing: .5px;
-}
-
-.brand span {
-    color: var(--accent);
-}
-
-.badge {
-    color: var(--accent);
-    border: 1px solid #286b5c;
-    border-radius: 30px;
-    padding: 5px 10px;
-    font-size: 11px;
-}
+.brand { font-weight: bold; }
+.brand span { color: var(--accent); }
 
 .page {
     display: none;
     padding: 54px 7%;
 }
 
-.page.active {
-    display: block;
-}
+.page.active { display: block; }
 
 .eyebrow {
     color: var(--accent);
@@ -85,12 +65,10 @@ body {
 
 h1 {
     font-size: clamp(34px, 5vw, 52px);
-    line-height: 1.1;
 }
 
 p {
     color: var(--muted);
-    max-width: 620px;
 }
 
 .btn {
@@ -115,7 +93,6 @@ p {
 
 label {
     display: block;
-    color: #c5d2e7;
     font-size: 13px;
     margin: 16px 0 7px;
 }
@@ -130,10 +107,10 @@ input {
     font-size: 16px;
 }
 
-.note {
+.notice {
     font-size: 12px;
-    color: #8495af;
-    margin-top: 13px;
+    color: var(--muted);
+    margin-top: 14px;
 }
 
 .grid {
@@ -165,9 +142,7 @@ input {
 }
 
 @media(max-width:650px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
+    .grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -180,10 +155,8 @@ input {
     <div class="brand">
         STALKERWARE <span>PREMIUM</span>
     </div>
-    <div class="badge">INTERACTIVE DEMO</div>
 </header>
 
-<!-- WELCOME PAGE -->
 <section class="page active" id="welcome">
 
     <div class="eyebrow">PREMIUM EXPERIENCE</div>
@@ -197,7 +170,6 @@ input {
 
     <p>
         Welcome to the premium demonstration platform.
-        Explore the interface and its simulated device dashboard.
     </p>
 
     <button class="btn" onclick="showPage('login')">
@@ -206,23 +178,17 @@ input {
 
 </section>
 
-
-<!-- LOGIN PAGE -->
 <section class="page" id="login">
 
     <div class="eyebrow">MEMBER ACCESS</div>
 
     <h1>Log in to Stalkerware</h1>
 
-    <p>
-        Enter your credentials to continue to the demonstration.
-    </p>
+    <p>Enter your credentials to continue.</p>
 
     <div class="card">
 
-        <label for="username">
-            Login username
-        </label>
+        <label for="username">Login username</label>
 
         <input
             id="username"
@@ -231,9 +197,7 @@ input {
             readonly
         >
 
-        <label for="password">
-            Password
-        </label>
+        <label for="password">Password</label>
 
         <input
             id="password"
@@ -242,29 +206,20 @@ input {
             autocomplete="off"
         >
 
-        <div class="note">
-            Demonstration only. Passwords are not collected
-            or transmitted.
+        <div class="notice">
+            Interactive demonstration — no credentials are collected.
         </div>
 
         <button
             class="btn"
             onclick="showPage('dashboard')">
-            OPEN DEMO DASHBOARD
-        </button>
-
-        <button
-            class="btn"
-            onclick="showPage('welcome')">
-            BACK
+            CONTINUE TO DASHBOARD →
         </button>
 
     </div>
 
 </section>
 
-
-<!-- DASHBOARD PAGE -->
 <section class="page" id="dashboard">
 
     <div class="eyebrow">SAMPLE DEVICE OVERVIEW</div>
@@ -272,8 +227,7 @@ input {
     <h1>Dashboard</h1>
 
     <p>
-        This dashboard displays simulated information only.
-        No private device information is accessed.
+        This dashboard contains simulated information only.
     </p>
 
     <div class="grid">
@@ -298,28 +252,21 @@ input {
 
     </div>
 
-    <button class="btn" onclick="showPage('login')">
-        BACK TO LOGIN
-    </button>
-
 </section>
 
-
 <footer class="footer">
-    STALKERWARE PREMIUM · SIMULATED DEMONSTRATION
+    STALKERWARE PREMIUM · DEMONSTRATION
 </footer>
 
 </div>
 
 <script>
 function showPage(id) {
-
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
     });
 
     document.getElementById(id).classList.add('active');
-
 }
 </script>
 
