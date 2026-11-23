@@ -1,0 +1,328 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stalkerware Premium</title>
+
+<style>
+:root {
+    --bg: #080d18;
+    --panel: #111a2b;
+    --line: #26344d;
+    --text: #edf3ff;
+    --muted: #94a4bf;
+    --accent: #63e6be;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 20% 10%, #182b48 0, transparent 36%), var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.shell {
+    width: min(960px, 100%);
+    min-height: 610px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: #0c1321;
+    overflow: hidden;
+    box-shadow: 0 30px 90px #0009;
+}
+
+.top {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    font-weight: bold;
+    letter-spacing: .5px;
+}
+
+.brand span {
+    color: var(--accent);
+}
+
+.badge {
+    color: var(--accent);
+    border: 1px solid #286b5c;
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-size: 11px;
+}
+
+.page {
+    display: none;
+    padding: 54px 7%;
+}
+
+.page.active {
+    display: block;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.1;
+}
+
+p {
+    color: var(--muted);
+    max-width: 620px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #071711;
+    font-weight: bold;
+    padding: 14px 24px;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    max-width: 500px;
+    margin-top: 26px;
+}
+
+label {
+    display: block;
+    color: #c5d2e7;
+    font-size: 13px;
+    margin: 16px 0 7px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #34445f;
+    background: #091221;
+    color: white;
+    font-size: 16px;
+}
+
+.note {
+    font-size: 12px;
+    color: #8495af;
+    margin-top: 13px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.tile {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 18px;
+    border-radius: 15px;
+}
+
+.tile b {
+    display: block;
+    font-size: 22px;
+    margin: 7px 0;
+    color: var(--accent);
+}
+
+.footer {
+    border-top: 1px solid var(--line);
+    padding: 16px 28px;
+    color: #71819b;
+    font-size: 11px;
+}
+
+@media(max-width:650px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="shell">
+
+<header class="top">
+    <div class="brand">
+        STALKERWARE <span>PREMIUM</span>
+    </div>
+    <div class="badge">INTERACTIVE DEMO</div>
+</header>
+
+<!-- WELCOME PAGE -->
+<section class="page active" id="welcome">
+
+    <div class="eyebrow">PREMIUM EXPERIENCE</div>
+
+    <h1>
+        Welcome to<br>
+        <span style="color:#63e6be">
+            Stalkerware Premium
+        </span>
+    </h1>
+
+    <p>
+        Welcome to the premium demonstration platform.
+        Explore the interface and its simulated device dashboard.
+    </p>
+
+    <button class="btn" onclick="showPage('login')">
+        NEXT →
+    </button>
+
+</section>
+
+
+<!-- LOGIN PAGE -->
+<section class="page" id="login">
+
+    <div class="eyebrow">MEMBER ACCESS</div>
+
+    <h1>Log in to Stalkerware</h1>
+
+    <p>
+        Enter your credentials to continue to the demonstration.
+    </p>
+
+    <div class="card">
+
+        <label for="username">
+            Login username
+        </label>
+
+        <input
+            id="username"
+            type="text"
+            value="64 204702648"
+            readonly
+        >
+
+        <label for="password">
+            Password
+        </label>
+
+        <input
+            id="password"
+            type="password"
+            placeholder="Enter a demo password"
+            autocomplete="off"
+        >
+
+        <div class="note">
+            Demonstration only. Passwords are not collected
+            or transmitted.
+        </div>
+
+        <button
+            class="btn"
+            onclick="showPage('dashboard')">
+            OPEN DEMO DASHBOARD
+        </button>
+
+        <button
+            class="btn"
+            onclick="showPage('welcome')">
+            BACK
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- DASHBOARD PAGE -->
+<section class="page" id="dashboard">
+
+    <div class="eyebrow">SAMPLE DEVICE OVERVIEW</div>
+
+    <h1>Dashboard</h1>
+
+    <p>
+        This dashboard displays simulated information only.
+        No private device information is accessed.
+    </p>
+
+    <div class="grid">
+
+        <div class="tile">
+            <small>Device Status</small>
+            <b>Demo</b>
+            <small>Simulation active</small>
+        </div>
+
+        <div class="tile">
+            <small>Location</small>
+            <b>Not accessed</b>
+            <small>No GPS access</small>
+        </div>
+
+        <div class="tile">
+            <small>Activity Feed</small>
+            <b>3 Samples</b>
+            <small>Fictional entries</small>
+        </div>
+
+    </div>
+
+    <button class="btn" onclick="showPage('login')">
+        BACK TO LOGIN
+    </button>
+
+</section>
+
+
+<footer class="footer">
+    STALKERWARE PREMIUM · SIMULATED DEMONSTRATION
+</footer>
+
+</div>
+
+<script>
+function showPage(id) {
+
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+
+}
+</script>
+
+</body>
+</html>
+```
